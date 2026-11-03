@@ -1,0 +1,46 @@
+CSS CLEAN REPORT
+================
+Original file: Pasted text(55).txt
+Original size: 101.7 KB
+Clean CSS size: 101.9 KB
+Minified CSS size: 80.1 KB
+
+What was cleaned:
+- :root variables were deduplicated and grouped by page prefix.
+- Duplicate properties inside the same selector block were removed safely.
+- CSS formatting, spacing, semicolons, and indentation were normalized.
+- Section comments were renamed/organized where they were unclear.
+- Media queries were formatted consistently and kept in their existing breakpoint order.
+
+Duplicate CSS variables found and resolved: 3
+  - --tsr-deep: 2 times, final value kept = #001f21
+  - --tsr-green: 2 times, final value kept = #05b892
+  - --tsr-white: 2 times, final value kept = #ffffff
+
+Repeated selector/context combinations found: 13
+Note: repeated selectors were preserved when removing them could change cascade behavior. These should be fixed in HTML/CSS by using unique parent wrappers or page prefixes if multiple pages share one stylesheet.
+  - [base] .tsr-btn: 2 times
+  - [base] .tsr-btn-primary: 2 times
+  - [base] .tsr-btn-primary:hover: 2 times
+  - [base] .tsr-hero-image: 2 times
+  - [base] .tsr-hero-copy: 2 times
+  - [base] .tsr-process-line: 2 times
+  - [base] .tsr-process-step: 2 times
+  - [base] .tsr-process-icon: 2 times
+  - [base] .tsr-process-icon i: 2 times
+  - [base] .tsr-process-step h3: 2 times
+  - [base] .tsr-process-step p: 2 times
+  - [@media (max-width:991.98px)] .tsr-hero-image: 2 times
+  - [@media (max-width:991.98px)] .tsr-process-step p: 2 times
+
+Breakpoint/media queries detected:
+  - (min-width:1200px)
+  - (max-width:1199.98px)
+  - (min-width:992px) and (max-width:1100px)
+  - (max-width:991.98px)
+  - (min-width:768px) and (max-width:820px)
+  - (max-width:767.98px)
+  - (max-width:480px)
+
+Recommendation:
+If all these pages are loaded from one global CSS file, add a page wrapper class per page, e.g. .tsr-home-page, .tsr-staffing-page, .tsr-industries-page, then scope conflicting selectors under that wrapper. This prevents classes like .tsr-btn and .tsr-process-step from affecting other sections/pages.
