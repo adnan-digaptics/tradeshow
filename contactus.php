@@ -66,6 +66,13 @@ include('partials/header.php');
 
           <?= tsr_render_alert($flash) ?>
 
+          <?php if (defined('TSR_STATIC_EXPORT')): ?>
+          <div class="alert alert-info" role="status">
+            Online form submissions are unavailable on this static site. Please email
+            <a href="mailto:<?= tsr_esc($config['contact_email']) ?>"><?= tsr_esc($config['contact_email']) ?></a>
+            or call us using the details alongside this message.
+          </div>
+          <?php else: ?>
           <form class="tsr-contact-form" action="contactus.php" method="post" novalidate>
             <input type="hidden" name="tsr_form" value="contact">
             <div class="row g-3">
@@ -117,6 +124,7 @@ include('partials/header.php');
               </div>
             </div>
           </form>
+          <?php endif; ?>
         </div>
       </div>
 

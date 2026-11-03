@@ -48,6 +48,13 @@ include('partials/header.php');
 <p>The more details you provide, the more accurate and customized your quote will be.</p>
 </div>
 <?= tsr_render_alert($flash) ?>
+<?php if (defined('TSR_STATIC_EXPORT')): ?>
+<div class="alert alert-info" role="status">
+Online quote submissions are unavailable on this static site. Please email
+<a href="mailto:<?= tsr_esc($config['contact_email']) ?>"><?= tsr_esc($config['contact_email']) ?></a>
+to discuss your project.
+</div>
+<?php else: ?>
 <form action="getquote.php" class="tsrlm-quote-form" enctype="multipart/form-data" id="tsrlm-quote-form" method="post">
 <input type="hidden" name="tsr_form" value="quote">
 <div class="row g-3 align-items-start tsrlm-main-layout">
@@ -338,6 +345,7 @@ include('partials/header.php');
 </div>
 
 </form>
+<?php endif; ?>
 </div>
 </main>
 <!-- Why Choose -->
